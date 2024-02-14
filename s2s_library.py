@@ -884,7 +884,7 @@ def plot_forecast_aggregated(var, period, deterministic_fc_smooth, deterministic
         
         min_tmin = np.floor(minval) - 1
         max_tmin = np.ceil(maxval) + 1
-        dt = max_tmin - min_tmin + 1
+        dt = int(max_tmin - min_tmin + 1)
         
         levels_det = np.linspace(min_tmin,max_tmin,dt)
         ticks_det = np.linspace(min_tmin,max_tmin,dt)
@@ -902,7 +902,7 @@ def plot_forecast_aggregated(var, period, deterministic_fc_smooth, deterministic
         
         min_tmax = np.floor(minval) - 1
         max_tmax = np.ceil(maxval) + 1
-        dt = max_tmax - min_tmax + 1
+        dt = int(max_tmax - min_tmax + 1)
         
         levels_det = np.linspace(min_tmax,max_tmax,dt)
         ticks_det = np.linspace(min_tmax,max_tmax,dt)
