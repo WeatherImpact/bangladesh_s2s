@@ -70,7 +70,7 @@ for timedelta in range(5):
     
     try:
         # Load the divisional forecast data (to add in the tables)
-        with open(direc+f'output_forecast/{aggregation_level}_forecast_{modeldatestr}.json') as jsfile:
+        with open(direc+f'output_forecast/{datestr}/{aggregation_level}_forecast_{modeldatestr}.json') as jsfile:
             forecast_json = json.load(jsfile)
             
         # Define start and end of the periods
@@ -146,7 +146,7 @@ for timedelta in range(5):
 
     except Exception as e:
         print(e)
-        print(f'No bulletin can be generated for {issue_date}. Continue to previous day.')
-        logging.warning(f"No bulletin can be generated for {issue_date}. Continue to previous day.")
+        print(f'No bulletin can be generated for {modeldate}. Continue to previous day.')
+        logging.warning(f"No bulletin can be generated for {modeldate}. Continue to previous day.")
         logging.warning(traceback.format_exc())
         continue

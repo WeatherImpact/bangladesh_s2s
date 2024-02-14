@@ -648,13 +648,13 @@ for timedelta in range(7):
                     probabilistic_fc_smooth = xc.gaussian_smooth(probabilistic_forecast, x_sample_dim='time', x_feature_dim= 'member',  kernel=0)
                     
                 # Plot the forecast
-                fig_dir_fc = fig_dir_fc + datestr + "/"
-                if not os.path.exists(fig_dir_fc):
-                    os.makedirs(fig_dir_fc)
+                fig_dir_fc_date = fig_dir_fc + datestr + "/"
+                if not os.path.exists(fig_dir_fc_date):
+                    os.makedirs(fig_dir_fc_date)
                 
                 s2s.plot_forecast_aggregated(var, period, deterministic_fc_smooth,
                                   deterministic_anomaly, probabilistic_fc_smooth,
-                                  fig_dir_fc, hc_model, modeldatestr, 'sub-seasonal', shp_fn)
+                                  fig_dir_fc_date, hc_model, modeldatestr, 'sub-seasonal', shp_fn)
 
             
             ####################################################
