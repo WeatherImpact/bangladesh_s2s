@@ -57,7 +57,16 @@ aggregation_level = 'district' # Choose from division or district
 ####      Choose model option (multi_model, ecmwf, eccc, ncep)       ####
 ####                                                                 ####
 #########################################################################
-model = 'multi_model'
+
+# Automatically check if multi model is possible, otherwise use available model:
+if os.path.exists(input_fig_dir+f"fc_tp_week3+4_multi_model_{modeldatestr}.png"):
+    model = 'multi_model'
+elif os.path.exists(input_fig_dir+f"fc_tp_week3+4_ecmwf_{modeldatestr}.png"):
+    model = 'ecmwf'
+elif os.path.exists(input_fig_dir+f"fc_tp_week3+4_eccc_{modeldatestr}.png"):
+    model = 'eccc'
+elif os.path.exists(input_fig_dir+f"fc_tp_week3+4_ncep_{modeldatestr}.png"):
+    model = 'ncep'
 
 # Loop over the last 5 days to find the most recent data
 for timedelta in range(5): 
